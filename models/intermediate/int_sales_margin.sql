@@ -1,5 +1,7 @@
 select product.products_id as products_id
     ,product.purchase_price as price
+    ,sales.date_date as date_date
+    ,sales.orders_id as orders_id
     ,sales.quantity as quantity
     ,sales.revenue as revenue
     ,ROUND(CAST(product.purchase_price as FLOAT64)*sales.quantity,2) as purchase_cost
