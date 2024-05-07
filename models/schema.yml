@@ -1,0 +1,42 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: gz_raw_data
+    description: greenweez raw data source
+    tables:
+      - name: sales
+        freshness: 
+          warn_after:
+            count: 1
+            period: day
+        loaded_at_field: "CAST(date_date AS TIMESTAMP)"
+        identifier: raw_gz_sales
+        description: sales of greenweez
+        tests:
+          - unique:
+              column_name: "(orders_id||'-'||pdt_id)"
+        columns:
+          - name: date_date
+            description: the date of purchase
+
+      - name: ship
+        identifier: raw_gz_ship
+        description: ship data of greenweez
+        columns:
+          - name: orders_id
+            description: primary key of the table
+            tests:
+              - unique
+              - not_null
+
+      - name: product
+        identifier: raw_gz_product
+        description: product data of greeweez
+        columns:
+          - name: products_id
+            description: primary key of the table
+            tests:
+              - unique
+              - not_null
+                  
