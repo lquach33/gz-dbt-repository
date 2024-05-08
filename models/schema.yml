@@ -39,4 +39,44 @@ sources:
             tests:
               - unique
               - not_null
+            
+      - name: adwords
+        identifier: raw_gz_adwords
+        description: data of adwords
+        columns:
+          - name: campaign_key
+        
+      - name: bing
+        identifier: raw_gz_bing
+        description: data of bing
+      
+      - name: criteo
+        identifier: raw_gz_criteo
+        description: data of criteo
+      
+      - name: facebook
+        identifier: raw_gz_facebook
+        description: data of facebook
+
+      - name: campaigns
+        identifier: int_campaigns
+        tests:
+          - unique:
+              column_name: "(date_date||'-'||campaign_key)"
+          - not_null
+
+      - name: campaigns_daily
+        identifier: int_campaigns_day
+        tests:
+          - unique:
+              column_name: "(date_date)"
+          - not_null
+      - name: finance_campaigns_daily
+        identifier: finance_campaigns_day
+        tests:
+          - unique:
+              column_name: "(date_date)"
+          - not_null
+              
+         
                   
