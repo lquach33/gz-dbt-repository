@@ -64,6 +64,5 @@ sources:
       - name: campaigns_daily
         identifier: int_campaigns_day
 
-
       - name: finance_campaigns_daily
         identifier: finance_campaigns_day
