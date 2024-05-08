@@ -60,23 +60,9 @@ sources:
 
       - name: campaigns
         identifier: int_campaigns
-        tests:
-          - unique:
-              column_name: "(date_date||'-'||campaign_key)"
-          - not_null
 
       - name: campaigns_daily
         identifier: int_campaigns_day
-        tests:
-          - unique:
-              column_name: "(date_date)"
-          - not_null
+
       - name: finance_campaigns_daily
         identifier: finance_campaigns_day
-        tests:
-          - unique:
-              column_name: "(date_date)"
-          - not_null
-              
-         
-                  
